@@ -5,12 +5,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 class Add extends Component {
     constructor(props) {
-        
         super(props);
         this.state = {
-            id: '',
+            id: null,
             name: '',
-            
             price: '',
             image: '',
             color: '',
@@ -69,11 +67,9 @@ class Add extends Component {
     }
 
     onSave = (e) => {
-        
         e.preventDefault();
         var { id, name, price, image, name_category, color, material
             , expiry_date, origin, description, tinhtranghang } = this.state;
-        var { history } = this.props;
         if (id) {
             axios({
                 method: 'PUT',
@@ -91,10 +87,9 @@ class Add extends Component {
                     tinhtranghang: tinhtranghang,
                 }
             }).then(res => {
-                var { history } = this.props;
                 toast.success("Cập nhật sản phẩm thành công", {
                 })
-                history.goBack();
+                // history.goBack();
                 
             });
         } else {
@@ -119,8 +114,7 @@ class Add extends Component {
                     }
                 }).then(res => {
                    
-                    toast.success("Thêm sản phẩm thành công", {
-                    })
+                    window.alert('Thêm sản phẩm thành công');
                     window.location.href='/';
                 });
             }
@@ -206,7 +200,6 @@ class Add extends Component {
                                                 <div className="text-center">
                                                     <button type="submit" className="btn btn-primary">Lưu</button>&nbsp;
                                                     <button type="button" onClick={this.onClear} className="btn btn-primary">Clear</button>
-                                                    {/* <NavLink to="/product-list" className="btn btn-primary ml-1">Trở về</NavLink> */}
                                                 </div>
                                             </form>
                                         </div>

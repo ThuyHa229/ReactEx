@@ -22,17 +22,6 @@ class ProductList extends Component {
       });
   }
 
-  onDelete = (id) => {
-    axios.delete(`http://localhost:3000/products/${id}`)
-      .then(response => {
-        window.location.reload();
-        window.alert('Xóa sản phẩm thành công');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
   onChange = (id) => {
     axios.get(`http://localhost:3000/products/${id}`)
       .then(response => {
@@ -60,7 +49,7 @@ class ProductList extends Component {
     axios
       .put(`http://localhost:3000/products/${product.id}`, product)
       .then(response => {
-        console.log('Cập nhật sản phẩm thành công');
+        window.alert('Cập nhật sản phẩm thành công');
         this.setState({ isEditFormVisible: false });
         this.updateProductList();
       })
@@ -81,12 +70,21 @@ class ProductList extends Component {
         console.log(error);
       });
   }
-  
+  onDelete = (id) => {
+    axios.delete(`http://localhost:3000/products/${id}`)
+      .then(response => {
+        window.location.reload();
+        window.alert('Xóa sản phẩm thành công');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   render() {
     const { products, isEditFormVisible, product } = this.state;
 
     return (
-      <div>
+      <div className='container'>
         <br />
         <Link to="/add-product" className='btn btn-primary'>Thêm sản phẩm</Link>
         <table className='table table-striped'>

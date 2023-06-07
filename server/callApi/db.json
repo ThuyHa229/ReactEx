@@ -3,7 +3,7 @@
     {
       "name": "Doughnuts11",
       "price": "15",
-      "image": "images/banhdoughnuts.jpg",
+      "image": "https://cdn.tgdd.vn/2022/03/CookRecipe/Avatar/banh-donut-bang-chao-chong-dinh-thumbnail.jpg",
       "color": "Hồng bánh kem",
       "name_category": "sản phẩm hot",
       "material": "Bánh và trứng",
@@ -285,6 +285,45 @@
       "description": "Thơm ngon bổ dưỡng",
       "tinhtranghang": true,
       "id": "COmonP-"
+    },
+    {
+      "name": "Bánh dừa Bến Tre loại 0001",
+      "price": "15999",
+      "image": "/images/banh-sua-chua-horsh-01.jpg",
+      "color": "Nâu",
+      "name_category": "",
+      "material": "Dừa",
+      "expiry_date": "2023-06-15",
+      "origin": "Việt Nam",
+      "description": "Thơm ngon bổ dưỡng",
+      "tinhtranghang": true,
+      "id": "OcQR48Z"
+    },
+    {
+      "name": "Laptop Dell12345",
+      "price": "100000",
+      "image": "/images/banh-sua-chua-horsh-01.jpg",
+      "color": "Nâu",
+      "name_category": "",
+      "material": "Sữa chua, bột mì",
+      "expiry_date": "2023-06-13",
+      "origin": "Đài Loan",
+      "description": "Thơm ngon bổ dưỡng",
+      "tinhtranghang": true,
+      "id": "oHj-6UO"
+    },
+    {
+      "name": "Áo phông 3158",
+      "price": "12345",
+      "image": "/images/Banh-doughnuts.jpg",
+      "color": "xanh",
+      "name_category": "",
+      "material": "hfjkshf",
+      "expiry_date": "2023-06-12",
+      "origin": "Đà Nẵng",
+      "description": "đẹp",
+      "tinhtranghang": true,
+      "id": "JMhTtLK"
     }
   ],
   "categories": [

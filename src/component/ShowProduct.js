@@ -8,13 +8,23 @@ class ShowProduct extends Component {
         super(props);
         this.state = {
             products: [],
+            
         };
         this.onSubmitHandle = this.onSubmitHandle.bind(this);
         this.deleteProduct = this.deleteProduct.bind(this);
         this.editProduct = this.editProduct.bind(this);
         this.submitEditProduct = this.submitEditProduct.bind(this);
         this.handleChange = this.handleChange.bind(this);
+
+
     }
+    openModalAdd = () => {
+        this.setState({ showModal: true });
+      };
+    
+      closeModalAdd = () => {
+        this.setState({ showModal: false });
+      };
 
     async componentDidMount() {
         await axios.get("http://localhost:8000/api/get-product").then((res) => {
@@ -55,11 +65,12 @@ class ShowProduct extends Component {
         if ($("#inputImage").val().split("\\")[2]) {
             await axios
                 .post(`http://localhost:8000/api/upload-image`, fd)
-                .then((res) => { });
+                .then((res) => {
+                    alert("Thêm thành công");
+                });
         }
-
         await axios
-            .post("http://localhost:8000/api/add-product", {
+            .post(`http://localhost:8000/api/add-product`, {
                 name: $("#inputName").val(),
                 id_type: $("#inputType").val(),
                 description: $("#inputDescription").val(),
@@ -86,7 +97,6 @@ class ShowProduct extends Component {
                     alert("Xóa thành công");
                     this.componentDidMount();
                 })
-                .catch(alert("Xóa không thành công"));
         } else {
             alert("Xóa không thành công");
         }
@@ -252,12 +262,14 @@ class ShowProduct extends Component {
                 {/* add product */}
                 <div>
                     <div
-                        className="modal fade"
+                        className="modal"
                         id="modelAddProduct"
                         tabIndex={-1}
                         role="dialog"
                         aria-labelledby="modelTitleId"
                         aria-hidden="true"
+                  
+
                     >
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
@@ -269,6 +281,7 @@ class ShowProduct extends Component {
                                         data-dismiss="modal"
                                         aria-label="Close"
                                         id="closeModalAddBtn"
+
                                     >
                                         <span aria-hidden="true">×</span>
                                     </button>
@@ -387,16 +400,16 @@ class ShowProduct extends Component {
                         </div>
                     </div>
                 </div>
-
                 {/* edit product */}
                 <div>
                     <div
-                        className="modal fade"
+                        className="modal"
                         id="modelEditProduct"
                         tabIndex={-1}
                         role="dialog"
                         aria-labelledby="modelTitleId"
                         aria-hidden="true"
+                       
                     >
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
@@ -544,9 +557,11 @@ class ShowProduct extends Component {
                         data-target="#modelAddProduct"
                         className="btn btn-primary"
                         style={{ width: 80 }}
+                        onClick={this.openModalAdd}
                     >
                         Add
                     </button>
+
                     <DataTable
                         title="Show Products"
                         columns={this.columns}
@@ -557,6 +572,7 @@ class ShowProduct extends Component {
                     />
                 </div>
             </div>
+
         );
     }
 }

@@ -15,7 +15,16 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 // import Trangchu from './component/ViduRoute/Trangchu';
 
 function App() {
-
+  // const renderPages = () => {
+  //   return RoutesAdmin.map((page) => (
+  //     <Route
+  //       key={page.path}
+  //       path={page.path}
+  //       element={page.element}
+  //       index={page.index}
+  //     />
+  //   ))
+  // }
   return (
     // <Router>
     //   <div>
@@ -39,16 +48,20 @@ function App() {
     // </Router>
     // <Add></Add>
     // <ProductList></ProductList>
-    <Router>
-      <Routes>
-        <React.Fragment>
-          <Route exact path="/" element={<ProductList />} />
-          <Route path="/add-product" element={< Add />} /> 
-        </React.Fragment>
-      </Routes>
-    </Router>
-    // <ShowProduct></ShowProduct>
-
+    // <Router>
+    //   <Routes>
+    //     <React.Fragment>
+    //       <Route exact path="/" element={<ProductList />} />
+    //       <Route path="/add-product" element={< Add />} /> 
+    //     </React.Fragment>
+    //   </Routes>
+    // </Router>
+    <ShowProduct></ShowProduct>
+    // <Router>
+    //   <Routes>
+    //     {renderPages()}
+    //   </Routes>
+    // </Router>
   );
 }
 
