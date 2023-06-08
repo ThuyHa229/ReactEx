@@ -6,6 +6,7 @@ import React from 'react';
 import ShowProduct from './component/ShowProduct';
 import ProductList from './component/ProductList';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import ShowSp from './component/ShowSp';
 // import Wrapper from './layout_admin/wrapper.js';
 // import Banner from './layout_admin/banner.js';
 // import { BrowserRouter as Router,Link,Route, Routes } from 'react-router-dom';
@@ -56,12 +57,8 @@ function App() {
     //     </React.Fragment>
     //   </Routes>
     // </Router>
-    <ShowProduct></ShowProduct>
-    // <Router>
-    //   <Routes>
-    //     {renderPages()}
-    //   </Routes>
-    // </Router>
+    // <ShowProduct></ShowProduct>
+        <ShowSp></ShowSp>
   );
 }
 

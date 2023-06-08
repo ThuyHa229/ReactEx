@@ -18,14 +18,7 @@ class ShowProduct extends Component {
 
 
     }
-    openModalAdd = () => {
-        this.setState({ showModal: true });
-      };
-    
-      closeModalAdd = () => {
-        this.setState({ showModal: false });
-      };
-
+  
     async componentDidMount() {
         await axios.get("http://localhost:8000/api/get-product").then((res) => {
             this.setState(() => ({ products: res.data }));
@@ -66,7 +59,6 @@ class ShowProduct extends Component {
             await axios
                 .post(`http://localhost:8000/api/upload-image`, fd)
                 .then((res) => {
-                    alert("Thêm thành công");
                 });
         }
         await axios
@@ -268,8 +260,6 @@ class ShowProduct extends Component {
                         role="dialog"
                         aria-labelledby="modelTitleId"
                         aria-hidden="true"
-                  
-
                     >
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
