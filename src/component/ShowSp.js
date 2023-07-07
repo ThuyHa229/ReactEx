@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import $ from "jquery";
-import { CardGroup, Card, Col } from 'react-bootstrap';
+import { CardGroup, Card,Col } from 'react-bootstrap';
 class ShowSp extends Component {
     constructor(props) {
         super(props);
@@ -10,16 +10,16 @@ class ShowSp extends Component {
 
 
         };
-        this.onSubmitHandle = this.onSubmitHandle.bind(this);
+        this.onSubmitHandle = this.onSubmitHandle.bind(this); 
     }
 
-    async componentDidMount() {
+    async componentDidMount() { //Hàm dùng để lấy api và res data từ api để show sp
         await axios.get("http://localhost:8000/api/get-product").then((res) => {
             this.setState(() => ({ products: res.data }));
         });
     }
 
-    previewImage() {
+    previewImage() {  //Hàm dùng để xem trước hình ảnh
         $(document).ready(function (e) {
             $("#inputImage").change(function () {
                 let reader = new FileReader();
@@ -32,7 +32,7 @@ class ShowSp extends Component {
     }
 
 
-    async onSubmitHandle(e) {
+    async onSubmitHandle(e) {//Hàm xử lí việc thêm sản phẩm 
         e.preventDefault();
         const fd = new FormData();
         fd.append("uploadImage", this.state.fileUpload);
@@ -172,9 +172,9 @@ class ShowSp extends Component {
                     <br />
                     <br />
                     <center>
-                        <CardGroup>
+                        <CardGroup style={{gap: '30px'}}>
                             {this.state.products.map((product) => (
-                                <Col key={product.id} xs={12} sm={6} md={3} style={{ marginLeft: '20px' }}>
+                                <Col key={product.id} sm={3}>
                                     <Card key={product.id} style={{ width: '18rem' }}>
                                         <center><Card.Img
                                             variant="top"
@@ -189,7 +189,7 @@ class ShowSp extends Component {
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
-                                </Col>
+                                    </Col>
                             ))}
                         </CardGroup>
                     </center>

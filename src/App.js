@@ -49,16 +49,19 @@ function App() {
     // </Router>
     // <Add></Add>
     // <ProductList></ProductList>
-    // <Router>
-    //   <Routes>
-    //     <React.Fragment>
-    //       <Route exact path="/" element={<ProductList />} />
-    //       <Route path="/add-product" element={< Add />} /> 
-    //     </React.Fragment>
-    //   </Routes>
-    // </Router>
+    <Router>
+      <Routes>
+        <React.Fragment>
+          <Route exact path="/" element={<ProductList />} />
+          <Route path="/add-product" element={< Add />} /> 
+        </React.Fragment>
+      </Routes>
+    </Router>
+    
+ 
+    
     // <ShowProduct></ShowProduct>
-        <ShowSp></ShowSp>
+        // <ShowSp></ShowSp>
   );
 }
 

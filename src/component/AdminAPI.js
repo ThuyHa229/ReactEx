@@ -3,20 +3,18 @@ import axios from "axios";
 import $ from "jquery";
 import DataTable from "react-data-table-component";
 
-class ShowProduct extends Component {
+class AdminAPI extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             products: [],
-
         };
         this.onSubmitHandle = this.onSubmitHandle.bind(this);
         this.deleteProduct = this.deleteProduct.bind(this);
         this.editProduct = this.editProduct.bind(this);
         this.submitEditProduct = this.submitEditProduct.bind(this);
         this.handleChange = this.handleChange.bind(this);
-
-
     }
 
     async componentDidMount() {
@@ -59,6 +57,7 @@ class ShowProduct extends Component {
             await axios
                 .post(`http://localhost:8000/api/upload-image`, fd)
                 .then((res) => {
+                    alert("Thêm thành công");
                 });
         }
         await axios
@@ -98,8 +97,6 @@ class ShowProduct extends Component {
         this.setState({ fileUpload: file[0] });
     };
 
-   
-    
     async submitEditProduct(e) {
         e.preventDefault();
         const id = $("#editID").val();
@@ -253,8 +250,6 @@ class ShowProduct extends Component {
     render() {
         return (
             <div>
-                
-
                 {/* add product */}
                 <div>
                     <div
@@ -275,7 +270,6 @@ class ShowProduct extends Component {
                                         data-dismiss="modal"
                                         aria-label="Close"
                                         id="closeModalAddBtn"
-
                                     >
                                         <span aria-hidden="true">×</span>
                                     </button>
@@ -403,7 +397,6 @@ class ShowProduct extends Component {
                         role="dialog"
                         aria-labelledby="modelTitleId"
                         aria-hidden="true"
-
                     >
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
@@ -551,11 +544,9 @@ class ShowProduct extends Component {
                         data-target="#modelAddProduct"
                         className="btn btn-primary"
                         style={{ width: 80 }}
-                        onClick={this.openModalAdd}
                     >
                         Add
                     </button>
-
                     <DataTable
                         title="Show Products"
                         columns={this.columns}
@@ -571,4 +562,4 @@ class ShowProduct extends Component {
     }
 }
 
-export default ShowProduct;								
+export default AdminAPI;									
